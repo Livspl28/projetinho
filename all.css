@@ -2,12 +2,12 @@
 .curriculo {
     background-color: #29587e;
     border-collapse: collapse;
-    width: 900px;
-    height: 750px;
-    margin: 20px;
+    width: 85%;
+    height: 760px;
+    margin: 50px auto;
     text-align: center;
 
-    margin-top: 150px;
+    margin-top: 80px;
 
     font-family: "Oxanium", sans-serif;
     color:  #fdf8f8;
@@ -16,8 +16,25 @@
     border-radius: 10px;
     overflow: hidden;
 }
+    input{
+        width: 180px;
+        height: 25px;
 
-    .label_form{
-width: 90px;
-height: 75px;
+        outline: none;
+
+        margin-top: 15px;
+        border-radius: 5px;
+        border-style: none;
+        background: rgba(117, 129, 139, 0.404)
+    }
+
+    select{
+        background: #29587e;
+        border-style: none;
+        font-family: "Oxanium", sans-serif;
+        color:  #fdf8f8;
+ 
+    }
+    option{
+         border-radius: 5px;
     }
