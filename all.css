@@ -1,0 +1,23 @@
+
+.curriculo {
+    background-color: #29587e;
+    border-collapse: collapse;
+    width: 900px;
+    height: 750px;
+    margin: 20px;
+    text-align: center;
+
+    margin-top: 150px;
+
+    font-family: "Oxanium", sans-serif;
+    color:  #fdf8f8;
+    font-size: 20px;
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .label_form{
+width: 90px;
+height: 75px;
+    }
