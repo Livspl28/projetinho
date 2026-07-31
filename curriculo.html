@@ -1,12 +1,51 @@
-<!-- <?php
+<?php
+require_once 'crud.php';
 
-   // $titulo = 'Byteware';
-    //$css = './css/user.css';
-    //require_once 'crud.php';
-    //require_once 'partials/navbar.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
 
-//$erro = $_GET['erro'] ?? null;
-?> -->
+    $novoDados = [
+
+    'nome'  => $_POST['nome'],
+    'cargo' => $_POST['cargo'],
+    'bio'   => $_POST['bio'],
+    'princi'  => $_POST['princi'],
+
+    ];
+
+$novaContato = [
+
+    'email'  => $_POST['email'],
+    'telefone' => $_POST['telefone'],
+    'perfis_profis'   => $_POST['perfis_profis'],
+    'info_princi'   => $_POST['info_princi'],
+    ];
+
+      $novoExperiencias = [
+
+    'funcao'  => $_POST['funcao'],
+    'descricao' => $_POST['descricao'],
+    ];
+
+      $novoDados = [
+
+    'curso'  => $_POST['curso'],
+    'funcao' => $_POST['funcao'],
+    ];
+
+
+
+    $idCurriculoNovo = create($pdo, 'Dados', $novoDados);
+    $idCurriculoNovo = create($pdo, 'Contato', $novaContato);
+    $idCurriculoNovo = create($pdo, 'Experiencias', $novaExperiencias);
+    
+    if ($idCurriculoNovo) {
+        // Redireciona para a mesma página de cadastro, mas ativa o pop-up
+        header("Location: cadastro.php#pop-sucesso");
+        exit();
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,18 +60,65 @@
     <main>
     <div class="curriculo">
 
+    <img src="" alt="">
+
+        <h2>Informações pessoais</h2>
+
     <label for="Nome"  class="label_form">Nome:</label>
         <input type="text">
 
      <label for="Cargo"  class="label_form">Cargo:</label>
-         <input type="text">
+         <input type="text" name="cargo">
 
 
-     <label for="Bio"  class="label_form">Bio:</label>
-         <input type="text">
+     <label for="Bio" >Bio:</label>
+         <input type="text" name="bio">
      
-    <label for="princi"  class="label_form">Informações principais:</label>
-         <input type="text" placeholder="Insira a sua senha" name="senha-login">
+    <label for="princi">Informações principais:</label>
+         <input type="text" name="info_princi">
+
+<h2>Contatos</h2>
+
+         <label for="email">Email:</label>
+         <input type="text" name="email">
+
+         <label for="telefone">Telefone:</label>
+         <input type="text" name="telefone">
+
+         <label for="perfis_profi">Perfis Profissionais:</label>
+         <input type="text" name="perfis_profi">
+
+         <label for="princi">Informações principais:</label>
+         <input type="text" name="info_princi">
+
+         <h2>Experiencias</h2>
+
+         
+            <label for="empresa">Empresa:</label>
+         <input type="text" name="empresa">
+
+
+            <label for="funcao">Função:</label>
+         <input type="text" name="funcao">
+
+           <select>
+            <option>Período de trabalho</option>
+            <option>Manhã</option>
+            <option>Tarde</option>
+            <option>Noite</option>
+         </select>
+
+         <label for="descricao">Descrição:</label>
+         <input type="text" name="descricao">
+
+       <h2>Formação</h2>
+
+         <label for="curso">Curso:</label>
+         <input type="text" name="curso">
+
+
+
+
     
     
 
