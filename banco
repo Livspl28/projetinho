@@ -1,0 +1,59 @@
+SELECT current_user;
+SELECT database();
+show databases;
+
+
+CREATE TABLE IF NOT EXISTS dados_pessoais(
+nome VARCHAR(100),
+cargo VARCHAR(100) UNIQUE NOT NULL,
+bio VARCHAR(200) UNIQUE NOT NULL,
+info_principal VARCHAR(500) UNIQUE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS contatos(
+email VARCHAR(500) UNIQUE NOT NULL,
+telefone VARCHAR(1000) NOT NULL,
+perfis_prof VARCHAR (500)
+);
+
+CREATE TABLE IF NOT EXISTS experiencias(
+empresa VARCHAR(100) NOT NULL,
+funcao VARCHAR(100) NOT NULL UNIQUE,
+perido_trabalho VARCHAR(200) NOT NULL,
+descricao VARCHAR(200) NOT NULL
+);
+
+drop table experiencias;
+
+
+CREATE TABLE IF NOT EXISTS formacao(
+instituicao INT PRIMARY KEY AUTO_INCREMENT,
+curso VARCHAR(100) NOT NULL UNIQUE,
+perido VARCHAR(200) NOT NULL
+);
+
+INSERT INTO dados_pessoais (nome, cargo, bio, info_principal) 
+VALUES (
+    'Ana Silva', 
+    'Desenvolvedora Full Stack Senior', 
+    'Especialista em desenvolvimento web com mais de 6 anos de experiência em Node.js, React e bancos de dados SQL/NoSQL.', 
+    'Apasionada por tecnologia, arquitetura de software limpa e solução de problemas complexos.'
+);
+
+INSERT INTO contatos (email, telefone, perfis_prof) 
+VALUES (
+    'ana.silva@email.com', 
+    '+55 (11) 98765-4321', 
+    'linkedin.com/in/anasilva-dev | github.com/anasilva-dev'
+);
+INSERT INTO experiencias (empresa, funcao, perido_trabalho, descricao) VALUES(
+'Tech Solutions',
+'Desenvolvedor Front-end', 
+'Manhã', 
+'Criação de interfaces web responsivas usando HTML, CSS e JavaScript.'
+);
+
+INSERT INTO formacao (instituicao, curso, perido) 
+VALUES 
+    ('Análise e Desenvolvimento de Sistemas', '2017 - 2020'),
+    ('Pós-Graduação em Arquitetura de Software', '2021 - 2022');
