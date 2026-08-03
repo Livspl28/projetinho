@@ -5,13 +5,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     $novoDados = [
-
+     
+    'foto' => '',
     'nome'  => $_POST['nome'],
     'cargo' => $_POST['cargo'],
     'bio'   => $_POST['bio'],
     'princi'  => $_POST['princi'],
 
     ];
+
+    
+    $idCurriculoNovo = create($pdo, 'Curriculo');
 
 $novaContato = [
 
@@ -22,22 +26,23 @@ $novaContato = [
     ];
 
       $novoExperiencias = [
-
+    'empresa' => $_POST['empresa'],
     'funcao'  => $_POST['funcao'],
     'descricao' => $_POST['descricao'],
     ];
 
-      $novoDados = [
-
+      $novoFormacao = [
+    'instituicao'  => $_POST['instituicao'],
     'curso'  => $_POST['curso'],
     'funcao' => $_POST['funcao'],
     ];
 
 
 
-    $idCurriculoNovo = create($pdo, 'Dados', $novoDados);
-    $idCurriculoNovo = create($pdo, 'Contato', $novaContato);
-    $idCurriculoNovo = create($pdo, 'Experiencias', $novaExperiencias);
+    $novoDados = readAll($pdo, 'Dados');
+    $novaContato = readAll($pdo, 'Contato');
+    $novaExperiencias =  readAll($pdo, 'Experiencias');
+    $novoFormacao =  readAll($pdo, 'Formacao');
     
     if ($idCurriculoNovo) {
         // Redireciona para a mesma página de cadastro, mas ativa o pop-up
@@ -91,7 +96,7 @@ $novaContato = [
          <label for="princi">Informações principais:</label>
          <input type="text" name="info_princi">
 
-         <h2>Experiencias</h2>
+         <h2>Experiên cias</h2>
 
          
             <label for="empresa">Empresa:</label>
@@ -118,6 +123,7 @@ $novaContato = [
 
 
 
+<button type="submit" class="b_form"><a href="#">Enviar</a></button>
 
     
     
